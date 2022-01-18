@@ -46,6 +46,7 @@ export default function SignUpForm(){
 
         if(status){
             window.localStorage.setItem("loggedIn", true);
+            window.localStorage.setItem("loggedInUser", JSON.stringify(data));
             navigate("/");
             setIsLoading(false);
         }

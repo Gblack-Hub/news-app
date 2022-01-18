@@ -47,9 +47,9 @@ function Navbar() {
                     </form>
                     <div className='d-flex align-items-center'>
                         <Avatar
-                            alt={loggedInUser.username}
+                            alt={loggedInUser().username}
                         />
-                        <span className='ms-2 text-capitalize'>{loggedInUser.username}</span>
+                        <span className='ms-2 text-capitalize'>{loggedInUser().username}</span>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ export function checkUser(user){
     if(!foundUser){
         return {
             status: false,
-            message: "Login details not found. Please sign up."
+            message: "Invalid details provided. Please register."
         };
     }
 

@@ -1,17 +1,23 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { sidebarItems } from '../../../utils/index';
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
-import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 export default function Sidebar() {
     const location = useLocation();
+    const navigate = useNavigate();
+
+    function handleLogout(){
+        window.localStorage.removeItem("loggedIn");
+        window.localStorage.removeItem("loggedInUser");
+        navigate("/auth/login");
+    }
 
     return (
-        <div className="sidebar h-100 p-1 pt-3 small d-flex flex-column justify-content-between pb-5">
+        <div className="sidebar">
             <div>
             {
                 sidebarItems.map((item, index) => (
-                    <Link to={item.route} key={index} className={`text-center d-flex ${location.pathname === item.route ? 'primary_bg_color' :'text-dark'} text-decoration-none mb-3`}>
+                    <Link to={item.route} key={index} className={`sidebar__item ${location.pathname === item.route ? 'sidebar__item-active' :'text-dark'}`}>
                         <item.icon />
                         <div className='sidebar__text ps-2'>{item.title}</div>
                     </Link>
@@ -19,16 +25,12 @@ export default function Sidebar() {
             }
             </div>
 
-            <div className='text-center'>
+            <div className='text-center d-grid'>
                 <hr />
-                <section className='mb-3'>
-                    <NotificationsNoneOutlinedIcon />
-                    <div className='sidebar__text'>FAQ</div>
-                </section>
-                <section>
-                    <ChatBubbleOutlineOutlinedIcon />
-                    <div className='sidebar__text'>Tutorials</div>
-                </section>
+                <button className='btn sidebar__item d-flex align-items-center' onClick={handleLogout}>
+                    <LogoutOutlinedIcon />
+                    <div className='sidebar__text ps-2'>Logout</div>
+                </button>
             </div>
         </div>
     )

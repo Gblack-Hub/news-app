@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import Avatar from '@mui/material/Avatar';
-import { getUserData } from '../../../service/authentication/useAuth';
+import { loggedInUser } from '../../../service/authentication/useAuth';
 import { Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -47,10 +47,9 @@ function Navbar() {
                     </form>
                     <div className='d-flex align-items-center'>
                         <Avatar
-                            alt="A"
-                            src="A"
+                            alt={loggedInUser.username}
                         />
-                        <span className='ms-2'>{getUserData.name}</span>
+                        <span className='ms-2 text-capitalize'>{loggedInUser.username}</span>
                     </div>
                 </div>
             </div>

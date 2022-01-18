@@ -35,7 +35,6 @@ export function NewsList() {
                 const response = await fetch(`${process.env.REACT_APP_API_URL}everything?q=Tesla&page=${page}&pageSize=10&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
                 if(!response.ok) setError('Something went wrong while fetching..');
                 const data = await response.json();
-                console.log(data, news);
                 const updatedNews = news?.concat(data?.articles)
                 setNews(updatedNews);
                 setLoading(false);

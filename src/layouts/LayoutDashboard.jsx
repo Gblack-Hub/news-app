@@ -10,7 +10,7 @@ export default function LayoutDashboard({children}) {
                     <aside className='col-sm-12 col-md-3 col-xl-2 d-none d-md-block sidebar_container ps-0'>
                         <Sidebar />
                     </aside>
-                    <div className='col-sm-12 col-md-9 col-xl-10 pt-3'>
+                    <div className='col-sm-12 col-md-9 col-xl-10 p-md-4 pt-3'>
                         {children}
                     </div>
                 </div>

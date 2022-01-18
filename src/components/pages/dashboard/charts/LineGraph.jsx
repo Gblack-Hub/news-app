@@ -58,7 +58,7 @@ export const data = {
 
 export default function LineGraph(){
     return (
-        <section className='stat_card mt-2 mt-md-4 mb-4'>
+        <section className='stat_card mb-4'>
             <Line options={options} data={data} />
         </section>
     )

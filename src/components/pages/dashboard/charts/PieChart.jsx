@@ -20,11 +20,11 @@ export const options = {
 };
 
 export const data = {
-  labels: ['One', 'Two', 'Three'],
+  labels: ['One', 'Three', 'Two'],
   datasets: [
     {
       label: '# of Votes',
-      data: [1, 2, 3],
+      data: [1, 3, 2],
       backgroundColor: [
         primaryColorLight,
         primaryColor,

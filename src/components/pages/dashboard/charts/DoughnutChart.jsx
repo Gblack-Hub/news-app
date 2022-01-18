@@ -20,19 +20,19 @@ export const options = {
 };
 
 export const data = {
-  labels: ['One', 'Two', 'Three'],
+  labels: ['Two', 'One', 'Three'],
   datasets: [
     {
       label: '# of Votes',
-      data: [1, 2, 3],
+      data: [2, 1, 3],
       backgroundColor: [
-        primaryColorLight,
         primaryColor,
+        primaryColorLight,
         primaryColorDark
       ],
       borderColor: [
-        primaryColorLight,
         primaryColor,
+        primaryColorLight,
         primaryColorDark
       ],
       borderWidth: 1,

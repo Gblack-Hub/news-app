@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import NewsCard from '../../../components/pages/news/NewsCard';
+import Spinner from '../../../widgets/Spinner';
 
 export function NewsList() {
     const [page, setPage] = useState(1)
@@ -50,24 +51,31 @@ export function NewsList() {
 
     return (
         <div className='row'>
-            {loading && 
-                <div className='text-center'>
-                    <div className="spinner-border primary_color" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                </div>
+            {loading && renderLoadingResponse()
             }
-            {error && <div className='alert alert-danger'>{error.message ?? "Error while fetching news..."}</div>}
-            {news?.map((item, index) => (
-                <NewsCard news={item} key={index} />
-            ))}
+            {error && renderErrorResponse(error)}
+            {renderNews()}
              <div ref={loader} className='text-center'>
-                {news?.length > 0 &&
-                    <div className="spinner-border primary_color" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                }
+                { news?.length > 0 && <Spinner /> }
             </div>
         </div>
     )
+}
+
+function renderNews(news){
+    return news?.map((item, index) => (
+        <NewsCard news={item} key={index} />
+    ))
+}
+
+function renderLoadingResponse(){
+    return <div className='text-center'>
+        <div className="spinner-border primary_color" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+
+function renderErrorResponse(error){
+    return <div className='alert alert-danger'>{error.message ?? "Error while fetching news..."}</div>;
 }

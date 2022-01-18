@@ -13,11 +13,9 @@ export default function News() {
             const response = await fetch(`${process.env.REACT_APP_API_URL}everything?q=Tesla&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
             if(!response.ok) throw new Error('Something went wrong');
             const data = await response.json();
-            console.log(data);
             setNews(data?.articles);
             setLoading(false);
         } catch (error) {
-            console.log(error.message);
             setLoading(false)
             setError(error.message);
         }

@@ -1,4 +1,4 @@
-import LoginForm from "../../../components/auth/login/LoginForm";
+import LoginForm from "../../../components/pages/auth/login/LoginForm";
 import LayoutAuth from "../../../layouts/LayoutAuth";
 import PageTitle from "../../../widgets/PageTitle";
 

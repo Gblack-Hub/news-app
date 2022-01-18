@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Link, useNavigate } from 'react-router-dom';
-import { createNewUser } from '../../../service/authentication/useAuth';
+import { createNewUser } from '../../../../service/authentication/useAuth';
 
 export default function SignUpForm(){
     const navigate = useNavigate();

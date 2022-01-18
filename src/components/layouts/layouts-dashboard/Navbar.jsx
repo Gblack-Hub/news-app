@@ -54,13 +54,15 @@ function Navbar() {
                 </div>
             </div>
         </nav>
-        <Drawer
-            anchor="left"
-            open={drawerState}
-            onClose={toggleDrawer}
-        >
-            <Sidebar />
-        </Drawer>
+        <div className='d-md-none'>
+            <Drawer
+                anchor="left"
+                open={drawerState}
+                onClose={toggleDrawer}
+                >
+                <Sidebar />
+            </Drawer>
+        </div>
         </>
     )
 }

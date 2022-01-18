@@ -8,8 +8,8 @@ export default function StatCard({stat}) {
                         <stat.icon fontSize="large" className="primary_color" />
                     </div>
                     <div className="ms-1">
-                        <h2 className="mb-0">{stat.count}</h2>
-                        <div>{stat.title}</div>
+                        <h2 className="stat_card__count mb-0">{stat.count}</h2>
+                        <div className="stat_card__title">{stat.title}</div>
                     </div>
                 </div>
             </div>

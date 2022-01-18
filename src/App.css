@@ -113,6 +113,14 @@ body {
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%); */
 }
 
+.stat_card__count {
+  font-size: 1.6rem;
+}
+
+.stat_card__title {
+  font-size: 0.9rem;
+}
+
 .news_card__image {
   height: 193px;
 }
@@ -123,5 +131,8 @@ body {
   }
   .sidebar {
     height: 93vh;
+  }
+  .stat_card__count {
+    font-size: 1.9rem;
   }
 }

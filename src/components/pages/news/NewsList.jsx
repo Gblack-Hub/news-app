@@ -15,22 +15,6 @@ export function NewsList() {
         }
     }
 
-    async function fetchNews(){
-        setLoading(true);
-        try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}everything?q=Tesla&page=${page}&pageSize=10&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
-            if(!response.ok) setError('Something went wrong while fetching..');
-            const data = await response.json();
-            console.log(data);
-            const updatedNews = news.concat(data?.articles)
-            setNews(updatedNews);
-            setLoading(false);
-        } catch (error) {
-            setLoading(false)
-            setError(error.message);
-        }
-    }
-
     useEffect(() => {
         const options = {
           root: null,
@@ -44,8 +28,24 @@ export function NewsList() {
     }, [])
 
     useEffect(function(){
-        console.log(news.length);
+        async function fetchNews(){
+            setLoading(true);
+            try {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}everything?q=Tesla&page=${page}&pageSize=10&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
+                if(!response.ok) setError('Something went wrong while fetching..');
+                const data = await response.json();
+                console.log(data, news);
+                const updatedNews = news?.concat(data?.articles)
+                setNews(updatedNews);
+                setLoading(false);
+            } catch (error) {
+                console.log(error)
+                setLoading(false)
+                setError(error.message);
+            }
+        }
         fetchNews();
+        // eslint-disable-next-line
     }, [page]);
 
     return (
@@ -62,7 +62,7 @@ export function NewsList() {
                 <NewsCard news={item} key={index} />
             ))}
              <div ref={loader} className='text-center'>
-                {news.length > 0 &&
+                {news?.length > 0 &&
                     <div className="spinner-border primary_color" role="status">
                         <span className="visually-hidden">Loading...</span>
                     </div>
